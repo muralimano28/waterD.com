@@ -24,6 +24,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/login',function(req,res){
+	if(req.body.username == 'bhargavi' && req.body.password == 'mangopakki')
+	{
+		res.send("successfully logged in");
+	}
+	else
+	{
+		res.send("Incorrect username or password");
+	}
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
